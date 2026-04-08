@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { LocaleSelect } from "@/components/locale-select";
 import { siteContent } from "@/content/site";
-import { localeLabels, locales, withLocale, type Locale } from "@/lib/i18n";
+import { withLocale, type Locale } from "@/lib/i18n";
 
 type SiteHeaderProps = {
   locale: Locale;
@@ -25,16 +26,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
           ))}
         </nav>
 
-        <div className="locale-switcher" aria-label="Language switcher">
-          {locales.map((entryLocale) => {
-            const className = entryLocale === locale ? "locale-switcher__current" : undefined;
-            return (
-              <Link key={entryLocale} className={className} href={withLocale(entryLocale)}>
-                {localeLabels[entryLocale]}
-              </Link>
-            );
-          })}
-        </div>
+        <LocaleSelect locale={locale} />
       </div>
     </header>
   );
