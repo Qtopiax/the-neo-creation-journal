@@ -17,8 +17,8 @@ export function withLocale(locale: Locale, path = "") {
 }
 
 export const localeLabels: Record<Locale, string> = {
-  "zh-Hant": "繁中",
-  "zh-Hans": "简中",
+  "zh-Hant": "繁體中文",
+  "zh-Hans": "简体中文",
   ja: "日本語",
-  en: "EN",
+  en: "English",
 };
