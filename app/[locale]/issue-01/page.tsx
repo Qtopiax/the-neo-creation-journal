@@ -82,9 +82,21 @@ export default async function IssuePage({ params }: PageProps) {
             </div>
 
             <div className="paper-panel">
-              <strong>{content.issue.authorTitle}</strong>
+              <strong>{content.issue.creditTitle}</strong>
+              <div className="detail-grid">
+                {content.issue.credits.map((item) => (
+                  <div key={item.title} className="paper-panel">
+                    <strong>{item.title}</strong>
+                    <p>{item.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="paper-panel">
+              <strong>{content.issue.publicationTitle}</strong>
               <ul>
-                {content.issue.authors.map((item) => (
+                {content.issue.publicationInfo.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
