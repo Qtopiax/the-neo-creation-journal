@@ -11,9 +11,10 @@
   --hero-wash: radial-gradient(circle at top, rgba(157, 50, 37, 0.24), transparent 38%),
     radial-gradient(circle at 80% 20%, rgba(29, 51, 45, 0.16), transparent 26%),
     linear-gradient(180deg, #f8f2ea 0%, #efe5d9 100%);
-  --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Noto Serif CJK TC", "Source Han Serif TC",
-    "Hiragino Mincho ProN", serif;
-  --sans: "Avenir Next", "Helvetica Neue", "Segoe UI", sans-serif;
+  --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Songti TC", "Noto Serif TC",
+    "Source Han Serif TC", "Noto Serif CJK TC", "Hiragino Mincho ProN", serif;
+  --sans: "Avenir Next", "PingFang TC", "Noto Sans TC", "Source Han Sans TC", "Helvetica Neue", "Segoe UI",
+    sans-serif;
   --content-width: min(1120px, calc(100vw - 2rem));
   --reading-width: min(760px, calc(100vw - 2rem));
   --header-height: 78px;
@@ -63,6 +64,18 @@ a {
   min-height: 100vh;
   position: relative;
   overflow: clip;
+}
+
+.site-shell[data-locale="zh-Hans"] {
+  --serif: "Songti SC", "STSong", "Noto Serif SC", "Source Han Serif SC", "Noto Serif CJK SC",
+    "Songti TC", serif;
+  --sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Source Han Sans SC",
+    "Helvetica Neue", "Segoe UI", sans-serif;
+}
+
+.site-shell[data-locale="ja"] {
+  --serif: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", "Source Han Serif", serif;
+  --sans: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", "Helvetica Neue", sans-serif;
 }
 
 .site-shell::before {
@@ -247,7 +260,7 @@ a {
 
 .hero__title {
   font-size: clamp(3.6rem, 9vw, 7.3rem);
-  line-height: 0.93;
+  line-height: 1.02;
   margin-top: 1rem;
 }
 
@@ -311,6 +324,101 @@ a {
   background: rgba(255, 250, 244, 0.92);
 }
 
+.contact-qr-card {
+  display: grid;
+  gap: 0.8rem;
+  width: min(13.5rem, 100%);
+  margin-top: 1.35rem;
+}
+
+.contact-qr-card--compact {
+  width: min(10rem, 100%);
+}
+
+.contact-qr-card__label {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.contact-qr-card__frame {
+  padding: 0.7rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(32, 24, 22, 0.1);
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.contact-qr-card__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.65rem;
+}
+
+.qr-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 1.2rem;
+}
+
+.qr-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(19, 17, 16, 0.58);
+}
+
+.qr-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: min(30rem, 100%);
+  padding: 1.2rem 1.2rem 1.35rem;
+  border: 1px solid rgba(32, 24, 22, 0.1);
+  border-radius: 1.4rem;
+  background: rgba(255, 250, 244, 0.97);
+  box-shadow: 0 28px 90px rgba(17, 13, 11, 0.22);
+}
+
+.qr-modal__close {
+  display: inline-flex;
+  margin-left: auto;
+  margin-bottom: 0.9rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.qr-modal__title {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  line-height: 1.16;
+}
+
+.qr-modal__body {
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.qr-modal__image-wrap {
+  margin-top: 1.15rem;
+  padding: 0.9rem;
+  border-radius: 1rem;
+  background: #fff;
+}
+
+.qr-modal__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.7rem;
+}
+
 .hero__visual {
   position: relative;
   min-height: 100%;
@@ -319,20 +427,11 @@ a {
   padding: clamp(1.5rem, 5vw, 4rem);
 }
 
-.hero__visual::before,
 .hero__visual::after {
   content: "";
   position: absolute;
   border-radius: 999px;
   filter: blur(24px);
-}
-
-.hero__visual::before {
-  inset: 12% 10% auto auto;
-  width: 12rem;
-  height: 12rem;
-  background: rgba(157, 50, 37, 0.16);
-  animation: drift 16s ease-in-out infinite;
 }
 
 .hero__visual::after {
@@ -387,7 +486,7 @@ a {
 
 .issue-cover__title {
   font-size: clamp(2.2rem, 5vw, 4.4rem);
-  line-height: 0.92;
+  line-height: 1.04;
 }
 
 .issue-cover__subtitle {
@@ -415,7 +514,7 @@ a {
 
 .section-title {
   font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1.02;
+  line-height: 1.14;
 }
 
 .section-intro {
@@ -502,7 +601,7 @@ a {
   max-width: 26rem;
   font-family: var(--serif);
   font-size: clamp(1.7rem, 3vw, 2.6rem);
-  line-height: 1.2;
+  line-height: 1.34;
 }
 
 .quote-caption {
@@ -513,7 +612,50 @@ a {
 
 .about-grid {
   grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.7fr);
-  margin-top: 2.8rem;
+}
+
+.about-history {
+  margin-top: 2rem;
+}
+
+.about-history__label {
+  margin: 0 0 0.85rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.about-history__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(180px, 0.72fr);
+  gap: 1rem;
+  align-items: end;
+}
+
+.about-history__figure {
+  margin: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.about-history__figure--book {
+  align-self: start;
+}
+
+.about-history__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 1rem;
+  border: 1px solid rgba(32, 24, 22, 0.1);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.about-history__figure figcaption {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 0.95rem;
 }
 
 .timeline {
@@ -620,9 +762,23 @@ a {
   color: var(--muted);
 }
 
+.contact-qr-card-wrap {
+  display: flex;
+  justify-content: center;
+}
+
 .text-link {
   position: relative;
   width: fit-content;
+}
+
+.text-link--button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
 }
 
 .page-intro {
@@ -642,7 +798,7 @@ a {
   margin: 1rem 0 0;
   font-family: var(--serif);
   font-size: clamp(2.8rem, 6vw, 5.4rem);
-  line-height: 0.98;
+  line-height: 1.1;
 }
 
 .page-description {
@@ -706,6 +862,10 @@ a {
   .issue-grid,
   .footer-grid,
   .manifesto-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-history__grid {
     grid-template-columns: 1fr;
   }
 

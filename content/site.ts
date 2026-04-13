@@ -73,10 +73,6 @@ export type AboutContent = {
   timeline: Array<{ year: string; title: string; body: string }>;
   editorialTitle: string;
   editorialBody: string;
-  audienceTitle: string;
-  audienceBody: string;
-  futureTitle: string;
-  futureBody: string;
 };
 
 export type IssueContent = {
@@ -93,8 +89,10 @@ export type IssueContent = {
   meta: Array<{ label: string; value: string }>;
   tocTitle: string;
   toc: string[];
-  authorTitle: string;
-  authors: string[];
+  creditTitle: string;
+  credits: Array<{ title: string; body: string }>;
+  publicationTitle: string;
+  publicationInfo: string[];
   actions: {
     pdf: string;
     buy: string;
@@ -145,7 +143,7 @@ export const siteContent: Record<Locale, SiteContent> = {
         founderValue: "在日華人作家發起",
         locationLabel: "出版基點",
         locationValue: "東京 / 面向世界華文讀者",
-        primaryCta: "閱讀創刊號",
+        primaryCta: "查看往期",
         secondaryCta: "聯絡編輯部",
       },
       manifesto: {
@@ -238,10 +236,6 @@ export const siteContent: Record<Locale, SiteContent> = {
       ],
       editorialTitle: "編輯立場",
       editorialBody: "我們重視文學性，也重視思想密度；關注華文書寫，也關注翻譯、跨文化閱讀與出版實踐。",
-      audienceTitle: "面向讀者",
-      audienceBody: "包括關注文學、思想、亞洲跨境經驗與當代華文寫作的讀者，也包括海外華人與日本文化圈之間的對話者。",
-      futureTitle: "未來方向",
-      futureBody: "首版官網先承接創刊與品牌展示，後續可平滑擴充更多期數、作者頁、專欄與活動資訊。",
     },
     issue: {
       seoTitle: "創刊號 | 創造新誌",
@@ -261,11 +255,39 @@ export const siteContent: Record<Locale, SiteContent> = {
         { label: "出版日期", value: "2026 年 4 月" },
         { label: "形式", value: "紙本 / PDF / 官方網站專題頁" },
         { label: "主題", value: "新的語言位置" },
+        { label: "定價", value: "2200 日元" },
       ],
       tocTitle: "目錄節選",
       toc: ["創刊宣言", "編者言：在異地重新開始寫作", "專題：新的語言位置", "小說 / 散文 / 評論節選"],
-      authorTitle: "作者與參與者",
-      authors: ["創辦人與編輯部成員", "旅日華文作家與評論者", "後續可替換為正式作者名單"],
+      creditTitle: "封面與署名",
+      credits: [
+        {
+          title: "封面題字：郭同慶",
+          body:
+            "旅日書畫家，師從王道榮、錢君匋等，現為日本篆隸書道會會長，並任全日本華人書法家協會副主席、上海中國書法院海外副院長。",
+        },
+        {
+          title: "封面畫作《春之歌 II》：王曉鳴",
+          body:
+            "1988 年畢業於廣州美術學院油畫系，1999 年畢業於京都市立藝術大學油畫系碩士，曾任天津美術學院客座教授、中國人民大學藝術學院兼職教授，現居東京。",
+        },
+        {
+          title: "封底篆刻：韓達",
+          body:
+            "篆刻作者，師承西泠印社名譽副社長小林斗盦一系，作品曾於 2020 年、2024 年入選日本國展日本美術展，現為日展作家。",
+        },
+      ],
+      publicationTitle: "刊物資訊",
+      publicationInfo: [
+        "2026 年春季　創刊號（總第一期）",
+        "主編：雍生",
+        "執行主編：春馬",
+        "編輯部主任：秋新",
+        "封面設計：湯映東",
+        "主辦：一般社團法人 日中華人",
+        "出版：日本國際教育出版社",
+        "國際刊號（ISBN）：978-4-910660-02-8",
+      ],
       actions: {
         pdf: "下載 PDF",
         buy: "購買紙本",
@@ -301,7 +323,7 @@ export const siteContent: Record<Locale, SiteContent> = {
         founderValue: "在日华人作家发起",
         locationLabel: "出版基点",
         locationValue: "东京 / 面向世界华文读者",
-        primaryCta: "阅读创刊号",
+        primaryCta: "查看往期",
         secondaryCta: "联系编辑部",
       },
       manifesto: {
@@ -394,10 +416,6 @@ export const siteContent: Record<Locale, SiteContent> = {
       ],
       editorialTitle: "编辑立场",
       editorialBody: "我们重视文学性，也重视思想密度；关注华文写作，也关注翻译、跨文化阅读与出版实践。",
-      audienceTitle: "面向读者",
-      audienceBody: "包括关注文学、思想、亚洲跨境经验与当代华文写作的读者，也包括海外华人与日本文化圈之间的对话者。",
-      futureTitle: "未来方向",
-      futureBody: "首版官网先承接创刊与品牌展示，后续可平滑扩充更多期数、作者页、专栏与活动信息。",
     },
     issue: {
       seoTitle: "创刊号 | 创造新志",
@@ -417,11 +435,39 @@ export const siteContent: Record<Locale, SiteContent> = {
         { label: "出版日期", value: "2026 年 4 月" },
         { label: "形式", value: "纸本 / PDF / 官方网站专题页" },
         { label: "主题", value: "新的语言位置" },
+        { label: "定价", value: "2200 日元" },
       ],
       tocTitle: "目录节选",
       toc: ["创刊宣言", "编者言：在异地重新开始写作", "专题：新的语言位置", "小说 / 散文 / 评论节选"],
-      authorTitle: "作者与参与者",
-      authors: ["创办人与编辑部成员", "旅日华文作家与评论者", "后续可替换为正式作者名单"],
+      creditTitle: "封面与署名",
+      credits: [
+        {
+          title: "封面题字：郭同庆",
+          body:
+            "旅日书画家，师从王道荣、钱君匋等，现为日本篆隶书道会会长，并任全日本华人书法家协会副主席、上海中国书法院海外副院长。",
+        },
+        {
+          title: "封面画作《春之歌 II》：王晓鸣",
+          body:
+            "1988 年毕业于广州美术学院油画系，1999 年毕业于京都市立艺术大学油画系硕士，曾任天津美术学院客座教授、中国人民大学艺术学院兼职教授，现居东京。",
+        },
+        {
+          title: "封底篆刻：韩达",
+          body:
+            "篆刻作者，师承西泠印社名誉副社长小林斗盦一系，作品曾于 2020 年、2024 年入选日本国展日本美术展，现为日展作家。",
+        },
+      ],
+      publicationTitle: "刊物信息",
+      publicationInfo: [
+        "2026 年春季　创刊号（总第一期）",
+        "主编：雍生",
+        "执行主编：春马",
+        "编辑部主任：秋新",
+        "封面设计：汤映东",
+        "主办：一般社团法人 日中华人",
+        "出版：日本国际教育出版社",
+        "国际刊号（ISBN）：978-4-910660-02-8",
+      ],
       actions: {
         pdf: "下载 PDF",
         buy: "购买纸本",
@@ -457,7 +503,7 @@ export const siteContent: Record<Locale, SiteContent> = {
         founderValue: "在日華人作家による発起",
         locationLabel: "拠点",
         locationValue: "東京 / 世界の華文読者へ",
-        primaryCta: "創刊号を見る",
+        primaryCta: "バックナンバーを見る",
         secondaryCta: "編集部へ連絡",
       },
       manifesto: {
@@ -550,10 +596,6 @@ export const siteContent: Record<Locale, SiteContent> = {
       ],
       editorialTitle: "編集方針",
       editorialBody: "文学性と思想の密度を両立させ、華文の書き手だけでなく、翻訳や越境読書、出版実践にも関心を向けます。",
-      audienceTitle: "読者像",
-      audienceBody: "文学、思想、アジアの越境経験、現代華文文学に関心を持つ読者、そして海外華人と日本文化圏の対話に関わる人々です。",
-      futureTitle: "今後の方向",
-      futureBody: "初版サイトは創刊とブランド提示に集中し、将来的には各号、執筆者、連載、イベント情報を追加していきます。",
     },
     issue: {
       seoTitle: "創刊号 | 創造新誌",
@@ -573,11 +615,39 @@ export const siteContent: Record<Locale, SiteContent> = {
         { label: "刊行日", value: "2026年4月" },
         { label: "形式", value: "紙 / PDF / 公式サイト特集ページ" },
         { label: "特集テーマ", value: "新しい言語の位置" },
+        { label: "定価", value: "2200円" },
       ],
       tocTitle: "目次抜粋",
       toc: ["創刊宣言", "編集者より: 異郷で書き始めること", "特集: 新しい言語の位置", "小説 / 随筆 / 批評抜粋"],
-      authorTitle: "執筆者・参加者",
-      authors: ["創設者と編集部", "在日華文作家・批評家", "正式な執筆者名は後で差し替え可能"],
+      creditTitle: "表紙クレジット",
+      credits: [
+        {
+          title: "表紙題字：郭同慶",
+          body:
+            "在日書画家。王道榮、錢君匋に学び、日本篆隷書道会会長、全日本華人書法家協会副主席、上海中国書法院海外副院長を務める。",
+        },
+        {
+          title: "表紙作品《春之歌 II》：王暁鳴",
+          body:
+            "広州美術学院油画科卒、京都市立芸術大学大学院修了。天津美術学院客員教授、中国人民大学芸術学院兼職教授を歴任し、現在は東京在住。",
+        },
+        {
+          title: "裏表紙篆刻：韓達",
+          body:
+            "篆刻作家。西泠印社名誉副社長・小林斗盦の系譜に学び、2020年・2024年に日本国展日本美術展へ入選、現在は日展作家。",
+        },
+      ],
+      publicationTitle: "刊行情報",
+      publicationInfo: [
+        "2026年春季　創刊号（通巻第1号）",
+        "主編：雍生",
+        "執行主編：春馬",
+        "編集部主任：秋新",
+        "表紙デザイン：湯映東",
+        "主催：一般社団法人 日中華人",
+        "出版：日本国際教育出版社",
+        "ISBN：978-4-910660-02-8",
+      ],
       actions: {
         pdf: "PDF をダウンロード",
         buy: "紙版を購入",
@@ -613,7 +683,7 @@ export const siteContent: Record<Locale, SiteContent> = {
         founderValue: "Chinese writers in Japan",
         locationLabel: "Editorial base",
         locationValue: "Tokyo / for global Chinese-language readers",
-        primaryCta: "Read Issue 01",
+        primaryCta: "View Past Issues",
         secondaryCta: "Contact the editors",
       },
       manifesto: {
@@ -711,10 +781,6 @@ export const siteContent: Record<Locale, SiteContent> = {
       ],
       editorialTitle: "Editorial position",
       editorialBody: "The journal values literary quality and intellectual density while also paying attention to translation, cross-cultural reading, and publishing practice.",
-      audienceTitle: "Readers",
-      audienceBody: "Readers interested in literature, ideas, Asian cross-border experience, contemporary Chinese-language writing, and dialogue with Japanese cultural contexts.",
-      futureTitle: "Future direction",
-      futureBody: "The launch site focuses on introduction and trust. Later phases can add more issues, contributors, columns, and event information.",
     },
     issue: {
       seoTitle: "Issue 01 | Neo Creation Journal",
@@ -734,11 +800,39 @@ export const siteContent: Record<Locale, SiteContent> = {
         { label: "Publication", value: "April 2026" },
         { label: "Format", value: "Print / PDF / official issue page" },
         { label: "Theme", value: "A New Position for Language" },
+        { label: "Price", value: "JPY 2200" },
       ],
       tocTitle: "Selected contents",
       toc: ["Launch manifesto", "Editors' note: beginning to write from elsewhere", "Feature: a new position for language", "Selections from fiction / essays / criticism"],
-      authorTitle: "Contributors",
-      authors: ["Founding editor and editorial group", "Chinese-language writers and critics in Japan", "Replace with confirmed contributor list later"],
+      creditTitle: "Cover credits",
+      credits: [
+        {
+          title: "Cover calligraphy: Guo Tongqing",
+          body:
+            "A calligrapher and painter based in Japan, trained under Wang Daorong and Qian Juntao, now serving in senior roles across Japanese and Chinese calligraphy associations.",
+        },
+        {
+          title: "Cover painting “Spring Song II”: Wang Xiaoming",
+          body:
+            "Graduated from Guangzhou Academy of Fine Arts and Kyoto City University of Arts, later teaching at Tianjin Academy of Fine Arts and Renmin University, now based in Tokyo.",
+        },
+        {
+          title: "Back-cover seal carving: Han Da",
+          body:
+            "Seal-carving artist in the lineage of Kobayashi Toan, with works selected for major Japanese art exhibitions in 2020 and 2024.",
+        },
+      ],
+      publicationTitle: "Publication details",
+      publicationInfo: [
+        "Spring 2026 launch issue (overall issue no. 1)",
+        "Editor-in-chief: Yong Sheng",
+        "Executive editor: Chun Ma",
+        "Editorial director: Qiu Xin",
+        "Cover design: Tang Yingdong",
+        "Publisher: General Incorporated Association Sino-Chinese in Japan",
+        "Imprint: Japan International Education Press",
+        "ISBN: 978-4-910660-02-8",
+      ],
       actions: {
         pdf: "Download PDF",
         buy: "Buy print issue",

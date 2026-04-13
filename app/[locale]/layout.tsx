@@ -21,7 +21,7 @@ export default async function LocaleLayout({
   }
 
   return (
-    <div className="site-shell">
+    <div className="site-shell" data-locale={locale}>
       <SiteHeader locale={locale as Locale} />
       <main className="page">{children}</main>
       <SiteFooter locale={locale as Locale} />

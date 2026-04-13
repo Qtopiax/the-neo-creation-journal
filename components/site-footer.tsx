@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ContactQrTrigger } from "@/components/contact-qr-trigger";
 import { siteContent } from "@/content/site";
 import { withLocale, type Locale } from "@/lib/i18n";
 
@@ -8,6 +9,12 @@ type SiteFooterProps = {
 
 export function SiteFooter({ locale }: SiteFooterProps) {
   const content = siteContent[locale];
+  const contactLabels: Record<Locale, string> = {
+    "zh-Hant": "編輯部微信",
+    "zh-Hans": "编辑部微信",
+    ja: "編集部 WeChat",
+    en: "Editorial WeChat",
+  };
 
   return (
     <footer className="site-footer">
@@ -32,10 +39,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
         <div>
           <h2 className="footer-heading">{content.home.footer.contactTitle}</h2>
           <div className="footer-links">
-            <span>{content.home.footer.contactLabel}</span>
-            <a className="text-link" href={`mailto:${content.contactEmail}`}>
-              {content.contactEmail}
-            </a>
+            <ContactQrTrigger locale={locale} label={contactLabels[locale]} variant="text" />
           </div>
         </div>
       </div>
