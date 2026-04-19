@@ -84,8 +84,6 @@ export type IssueContent = {
   coverTag: string;
   coverTitle: string;
   coverSubtitle: string;
-  summaryTitle: string;
-  summaryBody: string[];
   meta: Array<{ label: string; value: string }>;
   tocTitle: string;
   toc: string[];
@@ -130,7 +128,7 @@ export const siteContent: Record<Locale, SiteContent> = {
       nav: [
         { label: "首頁", href: "/" },
         { label: "關於", href: "/about" },
-        { label: "創刊號", href: "/issue-01" },
+        { label: "往期", href: "/issue-01" },
       ],
       hero: {
         eyebrow: "A journal begun in Tokyo",
@@ -168,7 +166,7 @@ export const siteContent: Record<Locale, SiteContent> = {
       feature: {
         title: "一本從異地開始，卻不只談異地的刊物",
         body:
-          "創刊號以新的語言位置為主題，回到遷徙、創作、出版與閱讀如何互相塑造的問題，也讓在日生活裡那些微小但真實的震動，進入文學與思想的視野。",
+          "創刊號以「關於創造新誌」為主題，回到刊物創辦的初心、寫作現場與出版實踐，也讓在日生活裡那些微小但真實的震動，進入文學與思想的視野。",
         quote: "從東京出發，但不只屬於東京；以華文寫作，但不只對華文內部說話。",
         caption: "首版官網以宣言、創刊資訊與期刊入口建立刊物的第一印象與閱讀節奏。",
         primaryCta: "前往創刊號頁面",
@@ -182,10 +180,10 @@ export const siteContent: Record<Locale, SiteContent> = {
         meta: [
           { label: "期數", value: "Issue 01" },
           { label: "出版時間", value: "2026 年 4 月" },
-          { label: "形式", value: "紙本 / PDF / 線上介紹頁" },
+          { label: "形式", value: "紙本" },
         ],
         tocTitle: "精選目錄",
-        toc: ["編者言：在異地重新開始寫作", "專題：新的語言位置", "小說與散文節選", "評論：跨文化閱讀的當下"],
+        toc: ["編者言：在異地重新開始寫作", "專題：關於創造新誌", "小說與散文節選", "評論：跨文化閱讀的當下"],
         ctas: {
           issue: "進入創刊號",
           pdf: "打開 PDF",
@@ -241,24 +239,19 @@ export const siteContent: Record<Locale, SiteContent> = {
       seoTitle: "創刊號 | 創造新誌",
       seoDescription: "查看《創造新誌》2026 年 4 月創刊號的主題、目錄與取得方式。",
       kicker: "Issue 01",
-      title: "創刊號：新的語言位置",
+      title: "創刊號：關於創造新誌",
       description: "2026 年 4 月創刊。以專題頁方式呈現主題、目錄、作者與取得入口。",
       coverTag: "創刊號",
       coverTitle: "新的\n語言位置",
       coverSubtitle: "從遷徙、寫作與閱讀之間，重畫華文的當代感受。",
-      summaryTitle: "本期簡介",
-      summaryBody: [
-        "創刊號回到一個基礎但迫切的問題：當創作發生在異地，語言是否也會被迫重新安排它的重心？",
-        "本期以宣言、編者言、專題、評論與文本節選構成閱讀節奏，讓刊物既具有創刊的自我說明，也保有文學作品本身的開放性。",
-      ],
       meta: [
         { label: "出版日期", value: "2026 年 4 月" },
-        { label: "形式", value: "紙本 / PDF / 官方網站專題頁" },
-        { label: "主題", value: "新的語言位置" },
+        { label: "形式", value: "紙本" },
+        { label: "主題", value: "關於創造新誌" },
         { label: "定價", value: "2200 日元" },
       ],
       tocTitle: "目錄節選",
-      toc: ["創刊宣言", "編者言：在異地重新開始寫作", "專題：新的語言位置", "小說 / 散文 / 評論節選"],
+      toc: ["創刊宣言", "編者言：關於創造新誌", "專題：九零後特輯、學者特輯等", "小說 / 散文 / 評論"],
       creditTitle: "封面與署名",
       credits: [
         {
@@ -280,11 +273,12 @@ export const siteContent: Record<Locale, SiteContent> = {
       publicationTitle: "刊物資訊",
       publicationInfo: [
         "2026 年春季　創刊號（總第一期）",
-        "主編：雍生",
+        "主編：弥生",
         "執行主編：春馬",
-        "編輯部主任：秋新",
-        "封面設計：湯映東",
-        "主辦：一般社團法人 日中華人",
+        "編輯部主任：秋靳",
+        "編輯委員會：弥生 春馬 秋靳 潘城 劉迪 林祁 李建 湯曉東 邱自楠 陳哲銘 寒粥",
+        "封面設計：湯曉東",
+        "主辦：一般社團法人 日中學人",
         "出版：日本國際教育出版社",
         "國際刊號（ISBN）：978-4-910660-02-8",
       ],
@@ -310,7 +304,7 @@ export const siteContent: Record<Locale, SiteContent> = {
       nav: [
         { label: "首页", href: "/" },
         { label: "关于", href: "/about" },
-        { label: "创刊号", href: "/issue-01" },
+        { label: "往期", href: "/issue-01" },
       ],
       hero: {
         eyebrow: "A journal begun in Tokyo",
@@ -348,7 +342,7 @@ export const siteContent: Record<Locale, SiteContent> = {
       feature: {
         title: "一本从异地开始，却不只谈异地的刊物",
         body:
-          "创刊号以新的语言位置为主题，回到迁徙、创作、出版与阅读如何互相塑造的问题，也让在日生活里那些微小但真实的震动，进入文学与思想的视野。",
+          "创刊号以“关于创造新志”为主题，回到刊物创办的初心、写作现场与出版实践，也让在日生活里那些微小但真实的震动，进入文学与思想的视野。",
         quote: "从东京出发，但不只属于东京；以华文写作，但不只对华文内部说话。",
         caption: "首版官网以宣言、创刊信息与期刊入口建立刊物的第一印象与阅读节奏。",
         primaryCta: "前往创刊号页面",
@@ -362,10 +356,10 @@ export const siteContent: Record<Locale, SiteContent> = {
         meta: [
           { label: "期数", value: "Issue 01" },
           { label: "出版时间", value: "2026 年 4 月" },
-          { label: "形式", value: "纸本 / PDF / 线上介绍页" },
+          { label: "形式", value: "纸本" },
         ],
         tocTitle: "精选目录",
-        toc: ["编者言：在异地重新开始写作", "专题：新的语言位置", "小说与散文节选", "评论：跨文化阅读的当下"],
+        toc: ["编者言：在异地重新开始写作", "专题：关于创造新志", "小说与散文节选", "评论：跨文化阅读的当下"],
         ctas: {
           issue: "进入创刊号",
           pdf: "打开 PDF",
@@ -421,24 +415,19 @@ export const siteContent: Record<Locale, SiteContent> = {
       seoTitle: "创刊号 | 创造新志",
       seoDescription: "查看《创造新志》2026 年 4 月创刊号的主题、目录与获取方式。",
       kicker: "Issue 01",
-      title: "创刊号：新的语言位置",
+      title: "创刊号：关于创造新志",
       description: "2026 年 4 月创刊。以专题页方式呈现主题、目录、作者与获取入口。",
       coverTag: "创刊号",
       coverTitle: "新的\n语言位置",
       coverSubtitle: "从迁徙、写作与阅读之间，重画华文的当代感受。",
-      summaryTitle: "本期简介",
-      summaryBody: [
-        "创刊号回到一个基础但迫切的问题：当创作发生在异地，语言是否也会被迫重新安排它的重心？",
-        "本期以宣言、编者言、专题、评论与文本节选构成阅读节奏，让刊物既具有创刊的自我说明，也保有文学作品本身的开放性。",
-      ],
       meta: [
         { label: "出版日期", value: "2026 年 4 月" },
-        { label: "形式", value: "纸本 / PDF / 官方网站专题页" },
-        { label: "主题", value: "新的语言位置" },
+        { label: "形式", value: "纸本" },
+        { label: "主题", value: "关于创造新志" },
         { label: "定价", value: "2200 日元" },
       ],
       tocTitle: "目录节选",
-      toc: ["创刊宣言", "编者言：在异地重新开始写作", "专题：新的语言位置", "小说 / 散文 / 评论节选"],
+      toc: ["创刊宣言", "编者言：关于创造新志", "专题：九零后特辑、学者特辑等", "小说 / 散文 / 评论"],
       creditTitle: "封面与署名",
       credits: [
         {
@@ -460,11 +449,12 @@ export const siteContent: Record<Locale, SiteContent> = {
       publicationTitle: "刊物信息",
       publicationInfo: [
         "2026 年春季　创刊号（总第一期）",
-        "主编：雍生",
+        "主编：弥生",
         "执行主编：春马",
-        "编辑部主任：秋新",
-        "封面设计：汤映东",
-        "主办：一般社团法人 日中华人",
+        "编辑部主任：秋靳",
+        "编辑委员会：弥生 春马 秋靳 潘城 刘迪 林祁 李建 汤晓东 邱自楠 陈哲铭 寒粥",
+        "封面设计：汤晓东",
+        "主办：一般社团法人 日中学人",
         "出版：日本国际教育出版社",
         "国际刊号（ISBN）：978-4-910660-02-8",
       ],
@@ -490,7 +480,7 @@ export const siteContent: Record<Locale, SiteContent> = {
       nav: [
         { label: "ホーム", href: "/" },
         { label: "雑誌について", href: "/about" },
-        { label: "創刊号", href: "/issue-01" },
+        { label: "バックナンバー", href: "/issue-01" },
       ],
       hero: {
         eyebrow: "A journal begun in Tokyo",
@@ -528,7 +518,7 @@ export const siteContent: Record<Locale, SiteContent> = {
       feature: {
         title: "異郷から始まり、異郷だけを語るのではない雑誌",
         body:
-          "創刊号は「新しい言語の位置」を主題とし、移動、創作、出版、読書がどのように互いを形づくるかを問い直します。",
+          "創刊号は「創造新誌について」を主題とし、刊行の出発点、書く現場、出版実践をあらためて見つめ直します。",
         quote: "東京から始まる。しかし東京だけに属さず、華文で書く。しかし華文内部だけに向けない。",
         caption: "初版サイトは宣言、創刊情報、創刊号導線によって雑誌の第一印象を構成します。",
         primaryCta: "創刊号ページへ",
@@ -542,10 +532,10 @@ export const siteContent: Record<Locale, SiteContent> = {
         meta: [
           { label: "号数", value: "Issue 01" },
           { label: "刊行時期", value: "2026年4月" },
-          { label: "形式", value: "紙 / PDF / ウェブ特集ページ" },
+          { label: "形式", value: "紙" },
         ],
         tocTitle: "目次抜粋",
-        toc: ["編集者より: 異郷で書き始めること", "特集: 新しい言語の位置", "小説・随筆抜粋", "批評: 越境読書の現在"],
+        toc: ["編集者より: 異郷で書き始めること", "特集: 創造新誌について", "小説・随筆抜粋", "批評: 越境読書の現在"],
         ctas: {
           issue: "創刊号へ",
           pdf: "PDF を開く",
@@ -601,24 +591,19 @@ export const siteContent: Record<Locale, SiteContent> = {
       seoTitle: "創刊号 | 創造新誌",
       seoDescription: "『創造新誌』2026年4月創刊号のテーマ、目次、入手方法を案内します。",
       kicker: "Issue 01",
-      title: "創刊号: 新しい言語の位置",
+      title: "創刊号: 創造新誌について",
       description: "2026年4月創刊。テーマ、目次、執筆者、入手導線をまとめた特集ページです。",
       coverTag: "創刊号",
       coverTitle: "新しい\n言語の位置",
       coverSubtitle: "移動、執筆、読書のあいだで、華文の現在感覚を描き直す。",
-      summaryTitle: "今号について",
-      summaryBody: [
-        "創刊号が扱うのは、異郷で創作が行われるとき、言語そのものの重心もまた組み替えられるのではないかという問いです。",
-        "宣言、編集後記、特集、批評、抜粋によって、創刊号としての自己説明と文学の開放性を両立させます。",
-      ],
       meta: [
         { label: "刊行日", value: "2026年4月" },
-        { label: "形式", value: "紙 / PDF / 公式サイト特集ページ" },
-        { label: "特集テーマ", value: "新しい言語の位置" },
+        { label: "形式", value: "紙" },
+        { label: "特集テーマ", value: "創造新誌について" },
         { label: "定価", value: "2200円" },
       ],
       tocTitle: "目次抜粋",
-      toc: ["創刊宣言", "編集者より: 異郷で書き始めること", "特集: 新しい言語の位置", "小説 / 随筆 / 批評抜粋"],
+      toc: ["創刊宣言", "編集者より：創造新誌について", "特集：90後特集・研究者特集など", "小説 / 随筆 / 批評"],
       creditTitle: "表紙クレジット",
       credits: [
         {
@@ -640,11 +625,12 @@ export const siteContent: Record<Locale, SiteContent> = {
       publicationTitle: "刊行情報",
       publicationInfo: [
         "2026年春季　創刊号（通巻第1号）",
-        "主編：雍生",
+        "主編：弥生",
         "執行主編：春馬",
-        "編集部主任：秋新",
-        "表紙デザイン：湯映東",
-        "主催：一般社団法人 日中華人",
+        "編集部主任：秋靳",
+        "編集委員会：弥生 春馬 秋靳 潘城 劉迪 林祁 李建 湯曉東 邱自楠 陳哲銘 寒粥",
+        "表紙デザイン：湯曉東",
+        "主催：一般社団法人 日中学人",
         "出版：日本国際教育出版社",
         "ISBN：978-4-910660-02-8",
       ],
@@ -670,7 +656,7 @@ export const siteContent: Record<Locale, SiteContent> = {
       nav: [
         { label: "Home", href: "/" },
         { label: "About", href: "/about" },
-        { label: "Issue 01", href: "/issue-01" },
+        { label: "Past Issues", href: "/issue-01" },
       ],
       hero: {
         eyebrow: "A journal begun in Tokyo",
@@ -722,7 +708,7 @@ export const siteContent: Record<Locale, SiteContent> = {
         meta: [
           { label: "Issue", value: "Issue 01" },
           { label: "Published", value: "April 2026" },
-          { label: "Format", value: "Print / PDF / editorial landing page" },
+          { label: "Format", value: "Print" },
         ],
         tocTitle: "Selected contents",
         toc: [
@@ -786,24 +772,24 @@ export const siteContent: Record<Locale, SiteContent> = {
       seoTitle: "Issue 01 | Neo Creation Journal",
       seoDescription: "Explore the theme, contents, and access points for Issue 01 of Neo Creation Journal, published in April 2026.",
       kicker: "Issue 01",
-      title: "Issue 01: A New Position for Language",
+      title: "Issue 01: About Neo Creation Journal",
       description: "Launched in April 2026. A dedicated issue page with theme framing, contents, contributors, and access links.",
       coverTag: "Launch Issue",
       coverTitle: "A New\nPosition\nfor Language",
       coverSubtitle: "Redrawing contemporary Chinese-language feeling through migration, writing, and reading.",
-      summaryTitle: "Issue overview",
-      summaryBody: [
-        "The first issue returns to a basic but urgent question: when writing happens away from its presumed center, does language itself need to be rearranged?",
-        "Manifesto, editors' note, feature essays, criticism, and selected texts create a reading rhythm that is both self-introducing and open-ended.",
-      ],
       meta: [
         { label: "Publication", value: "April 2026" },
-        { label: "Format", value: "Print / PDF / official issue page" },
-        { label: "Theme", value: "A New Position for Language" },
+        { label: "Format", value: "Print" },
+        { label: "Theme", value: "About Neo Creation Journal" },
         { label: "Price", value: "JPY 2200" },
       ],
       tocTitle: "Selected contents",
-      toc: ["Launch manifesto", "Editors' note: beginning to write from elsewhere", "Feature: a new position for language", "Selections from fiction / essays / criticism"],
+      toc: [
+        "Launch manifesto",
+        "Editors' note: about Neo Creation Journal",
+        "Features: post-90s writers, scholars, and more",
+        "Fiction / essays / criticism",
+      ],
       creditTitle: "Cover credits",
       credits: [
         {
@@ -825,11 +811,12 @@ export const siteContent: Record<Locale, SiteContent> = {
       publicationTitle: "Publication details",
       publicationInfo: [
         "Spring 2026 launch issue (overall issue no. 1)",
-        "Editor-in-chief: Yong Sheng",
+        "Editor-in-chief: Yayoi",
         "Executive editor: Chun Ma",
-        "Editorial director: Qiu Xin",
-        "Cover design: Tang Yingdong",
-        "Publisher: General Incorporated Association Sino-Chinese in Japan",
+        "Editorial director: Qiu Jin",
+        "Editorial committee: Yayoi, Chun Ma, Qiu Jin, Pan Cheng, Liu Di, Lin Qi, Li Jian, Tang Xiaodong, Qiu Zinan, Chen Zheming, Han Zhou",
+        "Cover design: Tang Xiaodong",
+        "Publisher: General Incorporated Association Sino-Gakujin in Japan",
         "Imprint: Japan International Education Press",
         "ISBN: 978-4-910660-02-8",
       ],

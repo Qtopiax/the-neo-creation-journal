@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ContactQrCard } from "@/components/contact-qr-card";
@@ -45,22 +46,14 @@ export default async function HomePage({ params }: PageProps) {
           <div className="hero__visual" aria-hidden="true">
             <div className="issue-cover">
               <div className="issue-cover__inner">
-                <div className="issue-cover__label">
-                  <span>{content.siteTitle}</span>
-                  <span>{content.issueNumber}</span>
-                </div>
-                <h2 className="issue-cover__title">
-                  {content.issue.coverTitle.split("\n").map((line) => (
-                    <span key={line}>
-                      {line}
-                      <br />
-                    </span>
-                  ))}
-                </h2>
-                <div className="issue-cover__footer">
-                  <span>{content.issueDate}</span>
-                  <span>{content.issue.coverSubtitle}</span>
-                </div>
+                <Image
+                  src="/images/cover-issue01.jpg"
+                  alt={`${content.siteTitle} ${content.issueNumber}`}
+                  width={843}
+                  height={1200}
+                  className="issue-cover__image"
+                  priority
+                />
               </div>
             </div>
           </div>
