@@ -1,4 +1,6 @@
+import Image from "next/image";
 import type { Metadata } from "next";
+import { ContactQrTrigger } from "@/components/contact-qr-trigger";
 import { siteContent } from "@/content/site";
 import { buildMetadata } from "@/lib/metadata";
 import { isLocale, type Locale } from "@/lib/i18n";
@@ -17,52 +19,82 @@ export default async function IssuePage({ params }: PageProps) {
   const { locale } = await params;
   const safeLocale: Locale = isLocale(locale) ? locale : "zh-Hant";
   const content = siteContent[safeLocale];
+  const archiveCopy: Record<
+    Locale,
+    {
+      filterLabel: string;
+      optionLabel: string;
+      title: string;
+      subtitle: string;
+    }
+  > = {
+    "zh-Hant": {
+      filterLabel: "查找往期",
+      optionLabel: "創刊號",
+      title: "創刊號",
+      subtitle: "Issue 01",
+    },
+    "zh-Hans": {
+      filterLabel: "查找往期",
+      optionLabel: "创刊号",
+      title: "创刊号",
+      subtitle: "Issue 01",
+    },
+    ja: {
+      filterLabel: "バックナンバーを選ぶ",
+      optionLabel: "創刊号",
+      title: "創刊号",
+      subtitle: "Issue 01",
+    },
+    en: {
+      filterLabel: "Browse past issues",
+      optionLabel: "Launch Issue",
+      title: "Launch Issue",
+      subtitle: "Issue 01",
+    },
+  };
+  const archive = archiveCopy[safeLocale];
 
   return (
     <>
-      <section className="page-intro">
+      <section className="page-intro archive-intro">
         <div className="container">
-          <span className="page-kicker">{content.issue.kicker}</span>
-          <h1 className="page-title">{content.issue.title}</h1>
-          <p className="page-description">{content.issue.description}</p>
+          <div className="archive-toolbar">
+            <label className="archive-toolbar__label" htmlFor="archive-select">
+              {archive.filterLabel}
+            </label>
+            <div className="archive-toolbar__select">
+              <select id="archive-select" className="archive-toolbar__input" defaultValue="issue-01">
+                <option value="issue-01">{archive.optionLabel}</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="archive-heading">
+            <h1 className="archive-heading__title">{archive.title}</h1>
+            <p className="archive-heading__subtitle">{archive.subtitle}</p>
+          </div>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section archive-section">
         <div className="container issue-grid">
           <div className="issue-poster">
             <div className="issue-cover">
               <div className="issue-cover__inner">
-                <div className="issue-cover__label">
-                  <span>{content.issue.coverTag}</span>
-                  <span>{content.issueNumber}</span>
-                </div>
-                <h2 className="issue-cover__title">
-                  {content.issue.coverTitle.split("\n").map((line) => (
-                    <span key={line}>
-                      {line}
-                      <br />
-                    </span>
-                  ))}
-                </h2>
-                <p className="issue-cover__subtitle">{content.issue.coverSubtitle}</p>
-                <div className="issue-cover__footer">
-                  <span>{content.issueDate}</span>
-                </div>
+                <Image
+                  src="/images/cover-issue01.jpg"
+                  alt={`${content.siteTitle} ${content.issueNumber}`}
+                  width={843}
+                  height={1200}
+                  className="issue-cover__image"
+                  priority
+                />
               </div>
             </div>
           </div>
 
           <div className="issue-copy">
-            <div>
-              <h2 className="section-title">{content.issue.summaryTitle}</h2>
-              <div className="section-intro">
-                {content.issue.summaryBody.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
-            </div>
-
             <dl className="issue-meta-list">
               {content.issue.meta.map((item) => (
                 <div key={item.label}>
@@ -103,15 +135,13 @@ export default async function IssuePage({ params }: PageProps) {
             </div>
 
             <div className="issue-actions">
-              <a className="button button--solid" href={content.pdfHref} target="_blank" rel="noreferrer">
+              <button className="button button--solid button--disabled" type="button" disabled>
                 {content.issue.actions.pdf}
-              </a>
-              <a className="button button--ghost" href={content.buyHref} target="_blank" rel="noreferrer">
+              </button>
+              <button className="button button--ghost button--disabled" type="button" disabled>
                 {content.issue.actions.buy}
-              </a>
-              <a className="button button--ghost" href={`mailto:${content.contactEmail}`}>
-                {content.issue.actions.contact}
-              </a>
+              </button>
+              <ContactQrTrigger locale={safeLocale} label={content.issue.actions.contact} />
             </div>
           </div>
         </div>
